@@ -48,10 +48,11 @@ int main()
 	if (arduino->isConnected()) {
 		std::cout << "Connection established at port " << portName << endl;
 	}
-
+	for(;;)
+	exampleReceiveData();
 #ifdef SEND
 	while (arduino->isConnected()) exampleWriteData(BLINKING_DELAY);
-#else // SEND
+#else  //SEND
 	while (arduino->isConnected()) exampleReceiveData();
 #endif // SEND
 }
